@@ -1,11 +1,21 @@
 // ConsoleApplication.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include <iostream>
+#include "SnakeGame.h"
 
 int main()
 {
     std::cout << "Hello World!\n";
+	SnakeGame *game = new SnakeGame(20,15);
+    game->gameInit();
+    int dfc = game->setDifficulty();
+    while (!game->gameOver) {
+        game->gameRender();
+        game->userInput();
+        game->updateGame();
+        Sleep(dfc);
+    }
+    return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
